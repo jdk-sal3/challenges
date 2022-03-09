@@ -1,5 +1,7 @@
 import Nat8 "mo:base/Nat8";
 import Nat "mo:base/Nat";
+import Text "mo:base/Text";
+import Char "mo:base/Char";
 
 actor {
 
@@ -31,22 +33,78 @@ actor {
   // Write a function decimal_to_bits that takes a Nat n and returns a Text corresponding to the binary representation of this number. 
   // 
   // 
+  
+  /*
   public func decimal_to_bits(n : Nat) : async Text {
     var decimal : Nat = n / 2;
     var binary : Text := Nat.toText(dec % 2);
+
+  */  
   
-
-
   // ----------------------------------------------------------------------------------
   // Challenge 4
   // Write a function capitalize_character that takes a Char c and returns the capitalized version of it.
   // 
   //
+
+  /*
   public func capitalize_character () : async Text {
     let c : Char = "c";
 
 
   } 
+  */
+
+  // ----------------------------------------------------------------------------------
+  // Challenge 5
+  // 
+  // 
+  //
+
+
+
+  // ----------------------------------------------------------------------------------
+  // Challenge 6
+  // 
+  // 
+  //
+
+
+  // ----------------------------------------------------------------------------------
+  // Challenge 7
+  // Write a function trim_whitespace that takes a text t and returns the trimmed version of t. Note : Trim means removing any leading and trailing spaces from the text : trim_whitespace(" Hello ") -> "Hello".
+  // dfx canister call day_2 trim_whitespace '(" He l lo ")'
+  // ("Hello")
+
+	public func trim_whitespace(t : Text) : async Text {
+		let no_whitespace: Text = Text.replace(t, #text(" "),"");
+		return no_whitespace;
+	};
+
+  // ----------------------------------------------------------------------------------
+  // Challenge 8
+  //
+  // 
+  //
+
+
+  // ----------------------------------------------------------------------------------
+  // Challenge 9
+  //
+  // 
+  //
+
+
+      
+  // ----------------------------------------------------------------------------------
+  // Challenge 10
+  // 
+  // 
+  //
+
+
+
+
 
 
 
