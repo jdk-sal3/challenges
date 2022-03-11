@@ -1,6 +1,7 @@
 import Array "mo:base/Array";
 import Iter "mo:base/Iter";
-
+import Nat "mo:base/Nat";
+import Option "mo:base/Option";
 
 actor {
 
@@ -81,37 +82,56 @@ actor {
   };
 
   // ----------------------------------------------------------------------------------
-  // Challenge 6 - 
+  // Challenge 6 - from solution
   // Write a function populate_array that takes an array [?Nat] and returns an array [Nat] where all null values have been replaced by 0. 
   // dfx canister call day_3 
   // 
 
-
-
-
-  // ----------------------------------------------------------------------------------
-  // Challenge 7 - 
-  // 
-  // dfx canister call day_3 
-  // 
-
-  // ----------------------------------------------------------------------------------
-  // Challenge 8 - 
-  // 
-  // dfx canister call day_3 
-  //   
+  public func populate_array(array : [?Nat]) : async [Nat] {
+    Array.map<?Nat,Nat>(array, func(x) {
+      switch(x){
+        case(null) return 0;
+        case(?x) return x;
+      };
+    });
+  };
 
 
   // ----------------------------------------------------------------------------------
-  // Challenge 9 - from mentorship
-  // 
-  // dfx canister call day_3 
-  // 
+  // Challenge 7 - from solution
+  // Write a function sum_of_array that takes an array [Nat] and returns the sum of a values in the array. Do not use a loop.
+  // dfx canister call day_3 sum_of_array '(vec {5; 6})'
+  // (11 : nat)
+
+  public func sum_of_array(array : [Nat]) : async Nat {
+    let sum = Array.foldLeft<Nat, Nat>(array, 0, func(a , b) {a + b});
+    return(sum);
+  };
 
 
   // ----------------------------------------------------------------------------------
-  // Challenge 10 - from mentorship
-  // 
+  // Challenge 8 - from solution
+  // Write a function squared_array that takes an array [Nat] and returns a new array where each value has been squared. Do not use a loop.
+  // dfx canister call day_3 squared_array '(vec {2; 3})'
+  // (vec { 4 : nat; 9 : nat })
+
+  public func squared_array(array : [Nat]) : async [Nat] {
+    return(Array.map<Nat,Nat>(array, func(x) { x*x }));
+  };
+
+  // ----------------------------------------------------------------------------------
+  // Challenge 9 - from solution
+  // Write a function increase_by_index that takes an array [Nat] and returns a new array where each number has been increased by it's corresponding index. Do not use a loop.
+  // dfx canister call day_3 increase_by_index '(vec {0; 0; 0; 0})'
+  // (vec { 0 : nat; 1 : nat; 2 : nat; 3 : nat })
+
+  public func increase_by_index(array : [Nat]) : async [Nat] {
+    return(Array.mapEntries<Nat,Nat>(array, func(a, index) {a + index}));
+  };
+
+  // ----------------------------------------------------------------------------------
+  // Challenge 10 - 
+  // Write a higher order function contains<A> that takes 3 parameters : an array [A] , a of type A and a function f that takes a tuple of type (A,A) and returns a boolean. This function should return a boolean indicating whether or not a is present in the array.
   // dfx canister call day_3 
   // 
 
