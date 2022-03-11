@@ -12,13 +12,9 @@
         "type": "motoko",
         "main": "day_3.mo"
       },
-      "main": {
+      "day_5": {
         "type": "motoko",
-        "main": "day_4/main.mo"
-      },
-      "animal": {
-        "type": "motoko",
-        "main": "day_4/animal.mo"
+        "main": "day_5.mo"
       }
     },
     "defaults": {
