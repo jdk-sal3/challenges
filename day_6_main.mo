@@ -1,4 +1,8 @@
 // day_6
+import Principal "mo:base/Principal";
+import HashMap "mo:base/HashMap";
+
+
 actor {
 
   // ----------------------------------------------------------------------------------
@@ -18,6 +22,7 @@ actor {
   // Challenge 2
   // Declare an HashMap called registry with Key of type TokenIndex and value of type Principal. This will keeep track of which principal owns which TokenIndex.
 
+  // let registry  = HashMap.HashMap<Principal, Nat>(0, Principal.equal, Principal.hash);
 
 
   // ----------------------------------------------------------------------------------
